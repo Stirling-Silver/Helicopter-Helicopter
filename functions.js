@@ -19,7 +19,7 @@ function drawStart() {
   ctx.fillText("BEST: 0", cnv.width - 250, cnv.height - 15);
 
   // Helicopter
-  ctx.drawImage(heliImg, 200, 250);
+  ctx.drawImage(heliImg, heli.x, heli.y);
 
   // Start Text
   ctx.font = "40px Consolas";
@@ -32,6 +32,22 @@ function drawStart() {
 }
 
 // Draw Game Elements
+function runGame() {
+  //LOGIC
+  moveHeli();
+
+  //DRAW
+  drawGame();
+}
+
+function moveHeli() {
+  if (mouseIsPressed) {
+    heli.y += -3;
+  } else {
+    heli.y += 3;
+  }
+}
+
 function drawGame() {
   // Background
   ctx.fillStyle = "black";
@@ -50,7 +66,7 @@ function drawGame() {
   ctx.fillText("BEST: 0", cnv.width - 250, cnv.height - 15);
 
   // Helicopter
-  ctx.drawImage(heliImg, 200, 250);
+  ctx.drawImage(heliImg, heli.x, heli.y);
 
   // Draw Wall 1
   ctx.fillStyle = "green";
@@ -76,7 +92,7 @@ function drawGameOver() {
   ctx.fillText("BEST: 0", cnv.width - 250, cnv.height - 15);
 
   // Helicopter
-  ctx.drawImage(heliImg, 200, 250);
+  ctx.drawImage(heliImg, heli.x, heli.y);
 
   // Draw Wall 1
   ctx.fillStyle = "green";

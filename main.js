@@ -11,6 +11,13 @@ let heliImg = document.createElement("img");
 heliImg.src = "img/heliBlueTransparent.png";
 
 let state = "start";
+let mouseIsPressed = false;
+let heli = {
+  x: 200,
+  y: 250,
+  w: 80,
+  h: 40,
+};
 
 // Draw Function
 window.addEventListener("load", draw);
@@ -19,7 +26,7 @@ function draw() {
   if (state === "start") {
     drawStart();
   } else if (state === "gameon") {
-    drawGame();
+    runGame();
   } else if (state === "gameover") {
     drawGameOver();
   }
@@ -30,11 +37,16 @@ function draw() {
 
 //EVENT STUFF
 document.addEventListener("mousedown", mousedownHandler);
+document.addEventListener("mouseup", mouseupHandler);
 
 function mousedownHandler() {
+  mouseIsPressed = true;
+
   if (state === "start") {
     state = "gameon";
-  } else if (state === "gameon") {
-    state = "gameover";
   }
+}
+
+function mouseupHandler() {
+  mouseIsPressed = false;
 }
