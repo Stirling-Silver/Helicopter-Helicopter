@@ -17,6 +17,8 @@ let heli = {
   y: 250,
   w: 80,
   h: 40,
+  speed: 0,
+  accel: 0.7,
 };
 
 // Draw Function

@@ -42,10 +42,12 @@ function runGame() {
 
 function moveHeli() {
   if (mouseIsPressed) {
-    heli.y += -3;
-  } else {
-    heli.y += 3;
+    heli.speed -= 1;
   }
+
+  heli.speed += heli.accel;
+
+  heli.y += heli.speed;
 }
 
 function drawGame() {
